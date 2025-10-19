@@ -1,0 +1,29 @@
+{
+  "name": "app-financas-pessoais",
+  "version": "1.0.0",
+  "description": "Repositório do desafio técnico — App Web de Finanças Pessoais (Angular + Node + PostgreSQL + Redis)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vagnercruz/app-financas-pessoais.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vagnercruz/app-financas-pessoais/issues"
+  },
+  "homepage": "https://github.com/vagnercruz/app-financas-pessoais#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "conventional-changelog-cli": "^5.0.0",
+    "eslint": "^9.38.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.4",
+    "prettier": "^3.6.2"
+  }
+}
