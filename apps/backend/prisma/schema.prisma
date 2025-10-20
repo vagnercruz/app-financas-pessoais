@@ -1,0 +1,50 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  senha     String
+  criadoEm  DateTime @default(now())
+  contas    Conta[]
+  transacoes Transacao[]
+}
+
+model Conta {
+  id       Int      @id @default(autoincrement())
+  nome     String
+  saldo    Float    @default(0)
+  usuario  Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  transacoes Transacao[]
+}
+
+model Categoria {
+  id    Int    @id @default(autoincrement())
+  nome  String
+  tipo  String // receita | despesa
+  transacoes Transacao[]
+}
+
+model Transacao {
+  id         Int      @id @default(autoincrement())
+  titulo     String
+  valor      Float
+  tipo       String   // receita | despesa
+  data       DateTime
+  conta      Conta     @relation(fields: [contaId], references: [id])
+  contaId    Int
+  categoria  Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId Int
+  usuario    Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId  Int
+  recorrente Boolean  @default(false)
+  criadoEm   DateTime @default(now())
+}
